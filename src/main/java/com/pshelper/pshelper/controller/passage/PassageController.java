@@ -1,13 +1,15 @@
 package com.pshelper.pshelper.controller.passage;
 
 
-import com.pshelper.pshelper.dto.request.PassageRequestDto;
+import com.pshelper.pshelper.dto.request.passage.PassageRequestDto;
 import com.pshelper.pshelper.dto.response.BaseResponseDto;
+import com.pshelper.pshelper.dto.response.ErrorResponseDto;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/v1/passage")
@@ -17,9 +19,22 @@ public class PassageController {
     @GetMapping("/")
     public ResponseEntity<BaseResponseDto> getTest() {
 
-        PassageRequestDto passageRequestDto = PassageRequestDto.builder().text("hello").build();
+        PassageRequestDto passageRequestDto = PassageRequestDto.builder().description("hello").build();
         return new ResponseEntity<>(new BaseResponseDto(HttpStatus.OK.value(), "데이터 조회 성공", passageRequestDto), HttpStatus.OK);
 
+    }
+
+
+    @ApiOperation(value = "PassageRequestDto", notes = "하이라이팅 기능", response = PassageRequestDto.class)
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "하이라이팅 기능 완료"),
+            @ApiResponse(code = 500, message = "서버 에러", response = ErrorResponseDto.class),
+    })
+    @PostMapping("/highlight")
+    public ResponseEntity<BaseResponseDto> getHighlighted(@RequestBody PassageRequestDto passageRequestDto) {
+
+        // TODO : 하이라이팅 로직 실행하고, Return 해주자.
+        return new ResponseEntity<>(new BaseResponseDto(HttpStatus.OK.value(), "데이터 조회 성공", passageRequestDto), HttpStatus.OK);
     }
 
 
