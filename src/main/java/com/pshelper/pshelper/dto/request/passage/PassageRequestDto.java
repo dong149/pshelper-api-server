@@ -10,9 +10,9 @@ import lombok.Setter;
 @Getter
 @Builder
 public class PassageRequestDto {
-    private String description;
+    private int problem_id;
+    private String content;
     private String input;
-    private String output;
 }
 //
 //action: "getDOM"

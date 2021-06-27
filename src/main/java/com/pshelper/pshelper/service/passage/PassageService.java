@@ -24,9 +24,9 @@ public class PassageService {
 
         return PassageResponseDto
                 .builder()
-                .description(getSentencesWithParagraph(passageRequestDto.getDescription()))
+                .problem_id(passageRequestDto.getProblem_id())
                 .input(getSentencesWithParagraph(passageRequestDto.getInput()))
-                .output(getSentencesWithParagraph(passageRequestDto.getOutput()))
+                .content(getSentencesWithParagraph(passageRequestDto.getContent()))
                 .build();
 
     }

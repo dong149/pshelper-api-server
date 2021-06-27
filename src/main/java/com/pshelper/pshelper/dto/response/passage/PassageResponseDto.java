@@ -10,9 +10,9 @@ import java.util.List;
 @Getter
 @Builder
 public class PassageResponseDto {
-    private List<String> description;
+    private int problem_id;
+    private List<String> content;
     private List<String> input;
-    private List<String> output;
 }
 //
 //action: "getDOM"

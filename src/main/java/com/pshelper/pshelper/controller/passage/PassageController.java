@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.*;
  * 알고리즘 문제 하나를 Passage라 정의.
  * 알고리즘 문제에 대한 Controller.
  */
-
-
 @AllArgsConstructor
 @RestController
 @RequestMapping(value = "api/v1/passage")
@@ -34,7 +32,7 @@ public class PassageController {
 
     @GetMapping("/")
     public ResponseEntity<BaseResponseDto> getTest() {
-        PassageRequestDto passageRequestDto = PassageRequestDto.builder().description("hello").build();
+        PassageRequestDto passageRequestDto = PassageRequestDto.builder().content("hello").build();
         return new ResponseEntity<>(new BaseResponseDto(HttpStatus.OK.value(), "데이터 조회 성공", passageRequestDto), HttpStatus.OK);
 
     }
