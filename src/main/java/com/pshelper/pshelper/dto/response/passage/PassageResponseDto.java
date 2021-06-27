@@ -4,13 +4,15 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 @Setter
 @Getter
 @Builder
 public class PassageResponseDto {
-    private String description;
-    private String input;
-    private String output;
+    private List<String> description;
+    private List<String> input;
+    private List<String> output;
 }
 //
 //action: "getDOM"
